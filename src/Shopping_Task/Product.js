@@ -44,7 +44,8 @@ function Product() {
         setCart(true)
     }
     const Delete=(e)=>{
-        axios.delete(`https://fakestoreapi.com/products/1`)
+        console.log(e)
+        axios.delete(`https://fakestoreapi.com/products/${e}`)
     }
     return (
         <div>
@@ -63,7 +64,7 @@ function Product() {
                             <img className='images' src={ele.image} alt="images" />
                             <p>{ele.category}</p>
                             <h4>{ele.price}</h4>
-                            <button onClick={Delete}>Delete</button>
+                            <button onClick={()=>Delete(ele.id)}>Delete</button>
                         </span>
                     </div>
                 )):
